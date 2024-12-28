@@ -1,8 +1,14 @@
 package com.w_farooq_group.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class CarDto extends VehicleDto{
 
+    @NotEmpty(message = "number of doors can not be empty")
+    @Size(min = 2, message = "number of doors can not be less then 2")
     private byte numDoors;
+    @NotEmpty(message = "class category can not be empty has to be one of eg: SUV, SALOON, HATCHBACK")
     private String classCategory;
 
     public CarDto(String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable, byte numDoors, String classCategory) {
@@ -13,19 +19,21 @@ public class CarDto extends VehicleDto{
 
     public CarDto () {}
 
+    @NotEmpty(message = "number of doors can not be empty")
+    @Size(min = 2, message = "number of doors can not be less then 2")
     public byte getNumDoors() {
         return numDoors;
     }
 
-    public void setNumDoors(byte numDoors) {
+    public void setNumDoors(@NotEmpty(message = "number of doors can not be empty") @Size(min = 2, message = "number of doors can not be less then 2") byte numDoors) {
         this.numDoors = numDoors;
     }
 
-    public String getClassCategory() {
+    public @NotEmpty(message = "class category can not be empty has to be one of eg: SUV, SALOON, HATCHBACK") String getClassCategory() {
         return classCategory;
     }
 
-    public void setClassCategory(String classCategory) {
+    public void setClassCategory(@NotEmpty(message = "class category can not be empty has to be one of eg: SUV, SALOON, HATCHBACK") String classCategory) {
         this.classCategory = classCategory;
     }
 }
