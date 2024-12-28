@@ -1,24 +1,18 @@
-package com.w_farooq_group.entity;
+package com.w_farooq_group.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.PrimaryKeyJoinColumn;
-
-import java.util.UUID;
-
-@Entity
-@PrimaryKeyJoinColumn(name = "van_id")
-public class Van extends Vehicle{
+public class VanDto extends VehicleDto{
 
     private boolean hasTailLift;
     private double weightLimit;
 
-    public Van(UUID id, String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable, boolean hasTailLift, double weightLimit) {
-        super(id, brand, model, reg, fuelType, dailyRate, isAvailable);
+    public VanDto(String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable, boolean hasTailLift, double weightLimit) {
+        super(brand, model, reg, fuelType, dailyRate, isAvailable);
         this.hasTailLift = hasTailLift;
         this.weightLimit = weightLimit;
     }
 
-   public Van () {}
+
+    public VanDto () {}
 
     public boolean isHasTailLift() {
         return hasTailLift;

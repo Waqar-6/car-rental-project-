@@ -1,24 +1,17 @@
-package com.w_farooq_group.entity;
+package com.w_farooq_group.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.PrimaryKeyJoinColumn;
+public class CarDto extends VehicleDto{
 
-import java.util.UUID;
-
-@Entity
-@PrimaryKeyJoinColumn(name = "car_id")
-public class Car extends Vehicle{
     private byte numDoors;
     private String classCategory;
 
-    public Car(UUID id, String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable, byte numDoors, String classCategory) {
-        super(id, brand, model, reg, fuelType, dailyRate, isAvailable);
+    public CarDto(String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable, byte numDoors, String classCategory) {
+        super(brand, model, reg, fuelType, dailyRate, isAvailable);
         this.numDoors = numDoors;
         this.classCategory = classCategory;
     }
 
-    public Car() {
-    }
+    public CarDto () {}
 
     public byte getNumDoors() {
         return numDoors;

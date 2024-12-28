@@ -2,20 +2,22 @@ package com.w_farooq_group.entity;
 
 import jakarta.persistence.*;
 
+import java.util.UUID;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Long id;
+    private UUID id;
     private String brand;
     private String model;
     private String reg;
     private String fuelType;
-    private String dailyRate;
+    private double dailyRate;
     private boolean isAvailable;
 
-    public Vehicle(Long id, String brand, String model, String reg, String fuelType, String dailyRate, boolean isAvailable) {
+    public Vehicle(UUID id, String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -27,11 +29,11 @@ public abstract class Vehicle {
 
     public Vehicle () {}
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -67,11 +69,11 @@ public abstract class Vehicle {
         this.fuelType = fuelType;
     }
 
-    public String getDailyRate() {
+    public double getDailyRate() {
         return dailyRate;
     }
 
-    public void setDailyRate(String dailyRate) {
+    public void setDailyRate(double dailyRate) {
         this.dailyRate = dailyRate;
     }
 
