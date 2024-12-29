@@ -1,17 +1,17 @@
-package com.w_farooq_group.service.impl;
+package com.w_farooq_group.vehicle.service.impl;
 
-import com.w_farooq_group.dto.CarDto;
-import com.w_farooq_group.dto.VanDto;
-import com.w_farooq_group.dto.VehicleDto;
-import com.w_farooq_group.entity.Car;
-import com.w_farooq_group.entity.Van;
-import com.w_farooq_group.entity.Vehicle;
-import com.w_farooq_group.exception.ResourceAlreadyExistsException;
-import com.w_farooq_group.exception.ResourceNotFoundException;
-import com.w_farooq_group.factory.VehicleFactory;
-import com.w_farooq_group.mapper.VehicleMapper;
-import com.w_farooq_group.repository.VehicleRepository;
-import com.w_farooq_group.service.IVehicleService;
+import com.w_farooq_group.vehicle.dto.CarDto;
+import com.w_farooq_group.vehicle.dto.VanDto;
+import com.w_farooq_group.vehicle.dto.VehicleDto;
+import com.w_farooq_group.vehicle.entity.Car;
+import com.w_farooq_group.vehicle.entity.Van;
+import com.w_farooq_group.vehicle.entity.Vehicle;
+import com.w_farooq_group.shared.exception.ResourceAlreadyExistsException;
+import com.w_farooq_group.shared.exception.ResourceNotFoundException;
+import com.w_farooq_group.vehicle.factory.VehicleFactory;
+import com.w_farooq_group.vehicle.mapper.VehicleMapper;
+import com.w_farooq_group.vehicle.repository.VehicleRepository;
+import com.w_farooq_group.vehicle.service.IVehicleService;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,4 +1,4 @@
-package com.w_farooq_group.entity;
+package com.w_farooq_group.vehicle.entity;
 
 import jakarta.persistence.*;
 

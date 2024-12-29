@@ -1,6 +1,6 @@
-package com.w_farooq_group.repository;
+package com.w_farooq_group.vehicle.repository;
 
-import com.w_farooq_group.entity.Vehicle;
+import com.w_farooq_group.vehicle.entity.Vehicle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

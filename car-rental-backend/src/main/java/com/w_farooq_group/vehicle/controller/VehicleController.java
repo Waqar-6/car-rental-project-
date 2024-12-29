@@ -1,11 +1,11 @@
-package com.w_farooq_group.controller;
+package com.w_farooq_group.vehicle.controller;
 
-import com.w_farooq_group.constants.AppConstants;
-import com.w_farooq_group.dto.CarDto;
-import com.w_farooq_group.dto.ResponseDto;
-import com.w_farooq_group.dto.VanDto;
-import com.w_farooq_group.dto.VehicleDto;
-import com.w_farooq_group.service.IVehicleService;
+import com.w_farooq_group.shared.constants.AppConstants;
+import com.w_farooq_group.vehicle.dto.CarDto;
+import com.w_farooq_group.shared.dto.ResponseDto;
+import com.w_farooq_group.vehicle.dto.VanDto;
+import com.w_farooq_group.vehicle.dto.VehicleDto;
+import com.w_farooq_group.vehicle.service.IVehicleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

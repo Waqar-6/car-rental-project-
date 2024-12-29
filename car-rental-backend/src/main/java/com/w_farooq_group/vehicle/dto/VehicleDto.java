@@ -1,9 +1,7 @@
-package com.w_farooq_group.dto;
+package com.w_farooq_group.vehicle.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-
-import java.util.UUID;
 
 public abstract class VehicleDto {
 

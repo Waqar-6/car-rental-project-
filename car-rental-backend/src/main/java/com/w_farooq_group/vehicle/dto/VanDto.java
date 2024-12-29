@@ -1,9 +1,9 @@
-package com.w_farooq_group.dto;
+package com.w_farooq_group.vehicle.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
-public class VanDto extends VehicleDto{
+public class VanDto extends VehicleDto {
 
     @NotEmpty(message = "has tail lift can not be empty")
     private boolean hasTailLift;

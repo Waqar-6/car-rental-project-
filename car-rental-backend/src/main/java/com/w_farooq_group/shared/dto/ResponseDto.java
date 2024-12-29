@@ -1,4 +1,4 @@
-package com.w_farooq_group.dto;
+package com.w_farooq_group.shared.dto;
 
 public class ResponseDto {
     private String responseStatus;

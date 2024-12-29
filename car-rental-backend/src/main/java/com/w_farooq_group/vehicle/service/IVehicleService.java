@@ -1,6 +1,6 @@
-package com.w_farooq_group.service;
+package com.w_farooq_group.vehicle.service;
 
-import com.w_farooq_group.dto.VehicleDto;
+import com.w_farooq_group.vehicle.dto.VehicleDto;
 
 public interface IVehicleService {
 

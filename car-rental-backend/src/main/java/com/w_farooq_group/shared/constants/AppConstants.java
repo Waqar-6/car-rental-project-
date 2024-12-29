@@ -1,4 +1,4 @@
-package com.w_farooq_group.constants;
+package com.w_farooq_group.shared.constants;
 
 public final class AppConstants {
 

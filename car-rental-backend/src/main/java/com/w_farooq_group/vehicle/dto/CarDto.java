@@ -1,9 +1,9 @@
-package com.w_farooq_group.dto;
+package com.w_farooq_group.vehicle.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
-public class CarDto extends VehicleDto{
+public class CarDto extends VehicleDto {
 
     @NotEmpty(message = "number of doors can not be empty")
     @Size(min = 2, message = "number of doors can not be less then 2")

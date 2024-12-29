@@ -1,4 +1,4 @@
-package com.w_farooq_group.dto;
+package com.w_farooq_group.shared.dto;
 
 import org.springframework.http.HttpStatus;
 
