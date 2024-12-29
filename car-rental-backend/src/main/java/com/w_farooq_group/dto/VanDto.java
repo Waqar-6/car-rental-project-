@@ -16,6 +16,8 @@ public class VanDto extends VehicleDto{
         this.weightLimit = weightLimit;
     }
 
+    public VanDto() {}
+
 
     @NotEmpty(message = "has tail lift can not be empty")
     public boolean isHasTailLift() {
