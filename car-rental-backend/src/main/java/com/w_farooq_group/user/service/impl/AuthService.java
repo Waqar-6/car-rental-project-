@@ -1,8 +1,6 @@
 package com.w_farooq_group.user.service.impl;
 
 import com.w_farooq_group.config.security.CustomUserDetails;
-import com.w_farooq_group.config.security.CustomUserDetailsService;
-import com.w_farooq_group.user.entity.User;
 import com.w_farooq_group.user.requests.LoginRequest;
 import com.w_farooq_group.user.requests.UserRegistrationRequest;
 import com.w_farooq_group.user.service.IUserService;

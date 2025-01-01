@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,15 +29,15 @@ public class UserServiceImpl implements IUserService {
     }
 
 
-    @Override
-    public <T extends UserDto> T getUserById(UUID id, Class<T> dtoClass) {
-        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User", "id", id.toString()));
-
-        passwordEncoder.encode(user.getPassword());
-        if (dtoClass == CustomerDto.class && user instanceof Customer customer)
-            return (T) UserMapper.mapToCustomerDto(customer, new CustomerDto());
-        return null;
-    }
+//    @Override
+//    public <T extends UserDto> T getUserById(UUID id, Class<T> dtoClass) {
+//        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User", "id", id.toString()));
+//
+//        passwordEncoder.encode(user.getPassword());
+//        if (dtoClass == CustomerDto.class && user instanceof Customer customer)
+//            return (T) UserMapper.mapToCustomerDto(customer, new CustomerDto());
+//        return null;
+//    }
 
     @Override
     public <T extends UserRegistrationRequest> String registerUser(T request) {
@@ -60,13 +59,13 @@ public class UserServiceImpl implements IUserService {
             userRepository.save(newCustomer);
             return "Registered";
         }
-        return "not registerd";
+        return "not registered";
     }
 
     @Override
-    public <T extends UserDto> boolean updateUser(UUID id, T userDto) {
-        User userToUpdate = userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User", "id", id.toString()));
+    public <T extends UserDto> boolean updateUser(String email, T userDto) {
+        User userToUpdate = userRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "email", email));
 
         if (userToUpdate instanceof Customer customer && userDto instanceof CustomerDto customerDto) {
             User updatedUser = UserMapper.mapToCustomer(customerDto, customer);
