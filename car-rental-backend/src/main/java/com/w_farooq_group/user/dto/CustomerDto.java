@@ -1,28 +1,21 @@
-package com.w_farooq_group.user.entity;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.PrimaryKeyJoinColumn;
+package com.w_farooq_group.user.dto;
 
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.UUID;
 
-@Entity
-@PrimaryKeyJoinColumn(name = "customer_id")
-public class Customer extends User{
+public class CustomerDto extends UserDto{
     private LocalDate dob;
     private String address;
     private String drivingLicenceNumber;
 
-    public Customer(UUID id, String firstName, String lastName, HashSet<String> roles, String email, String password, LocalDate dob, String address, String drivingLicenceNumber) {
-        super(id, firstName, lastName, roles, email, password);
+    public CustomerDto(String firstName, String lastName, HashSet<String> roles, String email, LocalDate dob, String address, String drivingLicenceNumber) {
+        super(firstName, lastName, roles, email);
         this.dob = dob;
         this.address = address;
         this.drivingLicenceNumber = drivingLicenceNumber;
     }
 
-
-    public Customer() {}
+   public CustomerDto () {}
 
     public LocalDate getDob() {return dob;}
 
