@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface IUserService {
 
-//    <T extends UserDto> T getUserById(UUID id, Class<T> dtoClass);
+    <T extends UserDto> T getUserByEmail(String email, Class<T> dtoClass);
     <T extends UserRegistrationRequest> String registerUser(T request);
     <T extends UserDto> boolean updateUser(String email, T userDto);
     <T extends UserDto> List<T> getAllUsers(Class<T> dtoClass);

@@ -29,15 +29,11 @@ public class UserServiceImpl implements IUserService {
     }
 
 
-//    @Override
-//    public <T extends UserDto> T getUserById(UUID id, Class<T> dtoClass) {
-//        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User", "id", id.toString()));
-//
-//        passwordEncoder.encode(user.getPassword());
-//        if (dtoClass == CustomerDto.class && user instanceof Customer customer)
-//            return (T) UserMapper.mapToCustomerDto(customer, new CustomerDto());
-//        return null;
-//    }
+    @Override
+    public <T extends UserDto> T getUserByEmail(String email, Class<T> dtoClass) {
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new ResourceNotFoundException("User", "id", email));
+       return user instanceof Customer customer ? (T) UserMapper.mapToCustomerDto(customer, new CustomerDto()) : null;
+    }
 
     @Override
     public <T extends UserRegistrationRequest> String registerUser(T request) {
