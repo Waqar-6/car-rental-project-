@@ -17,8 +17,7 @@ public class Car extends Vehicle{
         this.classCategory = classCategory;
     }
 
-    public Car() {
-    }
+    public Car() {}
 
     public byte getNumDoors() {
         return numDoors;

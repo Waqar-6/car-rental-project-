@@ -9,6 +9,7 @@ import com.w_farooq_group.vehicle.service.IVehicleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,6 +22,7 @@ public class VehicleController {
         this.iVehicleService = iVehicleService;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/car/create")
     public ResponseEntity<ResponseDto> createCar (@RequestParam String type, @RequestBody CarDto carDto) {
         iVehicleService.createVehicle(type, carDto);
@@ -28,6 +30,7 @@ public class VehicleController {
                 .body(new ResponseDto(AppConstants.STATUS_201, AppConstants.MESSAGE_201));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/van/create")
     public ResponseEntity<ResponseDto> createVan (@RequestParam String type, @RequestBody VanDto vanDto) {
         iVehicleService.createVehicle(type, vanDto);
@@ -42,6 +45,7 @@ public class VehicleController {
         return ResponseEntity.status(HttpStatus.OK).body(vehicleDto);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{reg}")
     public ResponseEntity<ResponseDto> updateVehicle (@PathVariable String reg, @RequestBody VehicleDto vehicleDto) {
         boolean isUpdated = iVehicleService.updateVehicle(reg, vehicleDto);
@@ -49,6 +53,7 @@ public class VehicleController {
                 ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseDto(AppConstants.STATUS_417, AppConstants.MESSAGE_417_UPDATE));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/delete/{reg}")
     public ResponseEntity<ResponseDto> updateVehicle (@PathVariable String reg) {
         boolean isDeleted = iVehicleService.deleteVehicle(reg);

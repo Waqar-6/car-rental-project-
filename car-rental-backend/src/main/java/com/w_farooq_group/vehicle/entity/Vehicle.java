@@ -1,7 +1,10 @@
 package com.w_farooq_group.vehicle.entity;
 
+import com.w_farooq_group.rentalrecord.entity.RentalRecord;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -16,6 +19,8 @@ public abstract class Vehicle {
     private String fuelType;
     private double dailyRate;
     private boolean isAvailable;
+    @OneToMany(mappedBy = "vehicle")
+    private List<RentalRecord> rentals;
 
     public Vehicle(UUID id, String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable) {
         this.id = id;
@@ -25,6 +30,7 @@ public abstract class Vehicle {
         this.fuelType = fuelType;
         this.dailyRate = dailyRate;
         this.isAvailable = isAvailable;
+        this.rentals = new ArrayList<>();
     }
 
     public Vehicle () {}
@@ -83,5 +89,13 @@ public abstract class Vehicle {
 
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    public List<RentalRecord> getRentals() {
+        return rentals;
+    }
+
+    public void setRentals(List<RentalRecord> rentals) {
+        this.rentals = rentals;
     }
 }
