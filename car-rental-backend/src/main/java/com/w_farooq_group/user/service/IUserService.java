@@ -1,5 +1,6 @@
 package com.w_farooq_group.user.service;
 
+import com.w_farooq_group.user.dto.CustomerDto;
 import com.w_farooq_group.user.dto.UserDto;
 import com.w_farooq_group.user.requests.CustomerRegistrationRequest;
 import com.w_farooq_group.user.requests.UserRegistrationRequest;
@@ -13,4 +14,6 @@ public interface IUserService {
     <T extends UserRegistrationRequest> String registerUser(T request);
     <T extends UserDto> boolean updateUser(String email, T userDto);
     <T extends UserDto> List<T> getAllUsers(Class<T> dtoClass);
+    List<CustomerDto> getAllCustomers ();
+    CustomerDto getCustomer (UUID customerId);
 }

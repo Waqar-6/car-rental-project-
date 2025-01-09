@@ -15,8 +15,10 @@ import com.w_farooq_group.user.service.IUserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -53,8 +55,11 @@ public class UserServiceImpl implements IUserService {
 
             Customer newCustomer = UserMapper.mapRequestToEntity(customerRequest, new Customer());
             userRepository.save(newCustomer);
+            System.out.println(newCustomer.getEmail() + " just registered now at: " + LocalDateTime.now());
             return "Registered";
         }
+
+        System.out.println("registration failed at : " + LocalDateTime.now());
         return "not registered";
     }
 
@@ -65,9 +70,12 @@ public class UserServiceImpl implements IUserService {
 
         if (userToUpdate instanceof Customer customer && userDto instanceof CustomerDto customerDto) {
             User updatedUser = UserMapper.mapToCustomer(customerDto, customer);
+            System.out.println(updatedUser.getEmail() + " was updated at : " + LocalDateTime.now());
             userRepository.save(updatedUser);
             return true;
         }
+
+        System.out.println(userDto.getEmail() + " failed to update at : " + LocalDateTime.now());
         return false;
     }
 
@@ -82,5 +90,19 @@ public class UserServiceImpl implements IUserService {
                 })
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<CustomerDto> getAllCustomers() {
+        return userRepository.findAll().stream()
+                .filter(user -> user instanceof Customer)
+                .map(user -> UserMapper.mapToCustomerDto((Customer) user, new CustomerDto())).toList();
+    }
+
+    @Override
+    public CustomerDto getCustomer(UUID customerId) {
+        Customer customer = userRepository.findCustomerById(customerId)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer", "id", customerId.toString()));
+        return UserMapper.mapToCustomerDto(customer, new CustomerDto());
     }
 }
