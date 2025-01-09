@@ -1,6 +1,9 @@
 package com.w_farooq_group.vehicle.service;
 
+import com.w_farooq_group.vehicle.dto.CarDto;
 import com.w_farooq_group.vehicle.dto.VehicleDto;
+
+import java.util.List;
 
 public interface IVehicleService {
 
@@ -12,6 +15,8 @@ public interface IVehicleService {
     <T extends VehicleDto> boolean updateVehicle (String reg,T vehicleDto);
 
     boolean deleteVehicle (String reg);
+
+    List<CarDto> getAllCars ();
 
 
 }

@@ -14,6 +14,8 @@ import com.w_farooq_group.vehicle.repository.VehicleRepository;
 import com.w_farooq_group.vehicle.service.IVehicleService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VehicleServiceImpl implements IVehicleService {
 
@@ -57,5 +59,12 @@ public class VehicleServiceImpl implements IVehicleService {
         Vehicle vehicle = vehicleRepository.findByReg(reg).orElseThrow(() -> new ResourceNotFoundException("Vehicle", "reg", reg));
         vehicleRepository.delete(vehicle);
         return true;
+    }
+
+    @Override
+    public List<CarDto> getAllCars() {
+        return vehicleRepository.findAll().stream()
+                .filter(vehicle -> vehicle instanceof Car)
+                .map(car -> VehicleMapper.mapToCarDto((Car) car , new CarDto())).toList();
     }
 }

@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/api/v1/vehicles", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class VehicleController {
@@ -59,5 +61,11 @@ public class VehicleController {
         boolean isDeleted = iVehicleService.deleteVehicle(reg);
         return isDeleted ? ResponseEntity.status(HttpStatus.OK).body(new ResponseDto(AppConstants.STATUS_200, AppConstants.STATUS_200)) :
                 ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseDto(AppConstants.STATUS_417, AppConstants.MESSAGE_417_DELETE));
+    }
+
+    @GetMapping("/fetch/cars")
+    public ResponseEntity<List<CarDto>> fetchAllCars () {
+        List<CarDto> allCars = iVehicleService.getAllCars();
+        return ResponseEntity.status(HttpStatus.OK).body(allCars);
     }
 }

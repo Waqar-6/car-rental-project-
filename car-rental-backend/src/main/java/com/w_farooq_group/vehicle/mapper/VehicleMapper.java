@@ -15,6 +15,7 @@ public final class VehicleMapper {
     // Entity to Dto
 
     public static VehicleDto mapToVehicleDto (Vehicle vehicle, VehicleDto vehicleDto) {
+        vehicleDto.setId(vehicle.getId());
         vehicleDto.setBrand(vehicle.getBrand());
         vehicleDto.setModel(vehicle.getModel());
         vehicleDto.setReg(vehicle.getReg());

@@ -3,6 +3,8 @@ package com.w_farooq_group.vehicle.dto;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.util.UUID;
+
 public class VanDto extends VehicleDto {
 
     @NotEmpty(message = "has tail lift can not be empty")
@@ -10,8 +12,8 @@ public class VanDto extends VehicleDto {
     @Size(min = 1, message = "weight limit can not be less then 1")
     private double weightLimit;
 
-    public VanDto(String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable, boolean hasTailLift, double weightLimit) {
-        super(brand, model, reg, fuelType, dailyRate, isAvailable);
+    public VanDto(UUID id, String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable, boolean hasTailLift, double weightLimit) {
+        super(id, brand, model, reg, fuelType, dailyRate, isAvailable);
         this.hasTailLift = hasTailLift;
         this.weightLimit = weightLimit;
     }

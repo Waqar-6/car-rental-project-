@@ -3,6 +3,8 @@ package com.w_farooq_group.vehicle.dto;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.util.UUID;
+
 public class CarDto extends VehicleDto {
 
     @NotEmpty(message = "number of doors can not be empty")
@@ -11,8 +13,8 @@ public class CarDto extends VehicleDto {
     @NotEmpty(message = "class category can not be empty has to be one of eg: SUV, SALOON, HATCHBACK")
     private String classCategory;
 
-    public CarDto(String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable, byte numDoors, String classCategory) {
-        super(brand, model, reg, fuelType, dailyRate, isAvailable);
+    public CarDto(UUID id, String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable, byte numDoors, String classCategory) {
+        super(id, brand, model, reg, fuelType, dailyRate, isAvailable);
         this.numDoors = numDoors;
         this.classCategory = classCategory;
     }

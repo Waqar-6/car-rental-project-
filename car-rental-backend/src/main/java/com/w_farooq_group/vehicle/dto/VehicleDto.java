@@ -3,8 +3,11 @@ package com.w_farooq_group.vehicle.dto;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.util.UUID;
+
 public abstract class VehicleDto {
 
+    private UUID id;
     @NotEmpty(message = "brand can not to be empty")
     private String brand;
     @NotEmpty(message = "model can not be empty")
@@ -18,7 +21,8 @@ public abstract class VehicleDto {
     private double dailyRate;
     private boolean isAvailable;
 
-    public VehicleDto(String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable) {
+    public VehicleDto(UUID id, String brand, String model, String reg, String fuelType, double dailyRate, boolean isAvailable) {
+        this.id = id;
         this.brand = brand;
         this.model = model;
         this.reg = reg;
@@ -28,6 +32,14 @@ public abstract class VehicleDto {
     }
 
     public VehicleDto () {}
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
     public @NotEmpty(message = "brand can not to be empty") String getBrand() {
         return brand;
