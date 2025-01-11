@@ -87,6 +87,14 @@ public class RentalRecordServiceImpl implements IRentalRecordService {
 
     @Override
     public List<RentalRecordDto> getVehicleRentals(UUID vehicleId) {
+        Vehicle vehicle = vehicleRepository.findById(vehicleId).orElseThrow(() -> new ResourceNotFoundException("Vehicle", "id", vehicleId.toString()));
+
+        if (vehicle instanceof Car car) {
+            List<RentalRecord> rentalRecords = car.getRentals();
+            return rentalRecords.stream()
+                    .map(record -> RentalRecordMapper.mapToRentalRecordDto(record, new RentalRecordDto())).toList();
+        }
+
         return List.of();
     }
 

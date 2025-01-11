@@ -12,6 +12,7 @@ public final class RentalRecordMapper {
         rentalRecordDto.setStartDateTime(rentalRecord.getStartDateTime());
         rentalRecordDto.setEndDateTime(rentalRecord.getEndDateTime());
         rentalRecordDto.setTotalPrice(rentalRecord.getTotalPrice());
+        rentalRecordDto.setStatus(rentalRecord.getStatus());
         return rentalRecordDto;
     }
 }
