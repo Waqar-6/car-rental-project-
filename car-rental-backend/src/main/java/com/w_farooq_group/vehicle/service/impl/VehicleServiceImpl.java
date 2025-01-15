@@ -67,4 +67,5 @@ public class VehicleServiceImpl implements IVehicleService {
                 .filter(vehicle -> vehicle instanceof Car)
                 .map(car -> VehicleMapper.mapToCarDto((Car) car , new CarDto())).toList();
     }
+
 }

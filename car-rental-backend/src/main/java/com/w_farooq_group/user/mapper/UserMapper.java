@@ -5,7 +5,7 @@ import com.w_farooq_group.user.dto.UserDto;
 import com.w_farooq_group.user.entity.Customer;
 import com.w_farooq_group.user.entity.User;
 import com.w_farooq_group.user.requests.CustomerRegistrationRequest;
-import com.w_farooq_group.user.requests.UserRegistrationRequest;
+
 
 public final class UserMapper {
 
